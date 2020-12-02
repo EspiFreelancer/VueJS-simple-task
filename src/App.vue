@@ -1,14 +1,29 @@
 <template>
   <div id="app">
-    <todo-list />
+    <b-jumbotron bg-variant="info" text-variant="white">
+      <template slot="header">
+        <b-container>App Task con Vuex</b-container>
+      </template>
+      <template slot="lead">
+        <b-container>Realizado usando Boostrap-vue</b-container>
+      </template>
+    </b-jumbotron>
+
+    <b-container>
+      <div class="todo-page">
+        <h2>Lista de Shopping</h2>
+        <hr>
+        <TodoList />
+      </div>
+    </b-container>
   </div>
 </template>
 
 <script>
-import TodoList from './components/TodoList.vue'
+import TodoList from '@/components/TodoList.vue'
 
 export default {
-  name: 'App',
+  name: 'TodoView',
   components: {
     TodoList
   }

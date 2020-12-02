@@ -1,11 +1,11 @@
 <template>
-	<p>Componente ToDo en construcción</p>
+	<p>Componente items en construcción</p>
 </template>
 
 <script>
 export default {
 
-  name: 'TodoList',
+  name: 'TodoItem',
 
   data () {
     return {
