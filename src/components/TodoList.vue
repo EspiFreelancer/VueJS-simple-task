@@ -1,13 +1,17 @@
 <template>
 	<div class="todo-list">
 		<!-- start of to-do form -->
-		<b-form class="row">
+		<b-form class="row" @submit.prevent="onSubmit">
 			<b-col cols="10">
+				<!-- Quite v-validate="'required'" -->
 				<b-form-input 
 				id="item"
 				name="item" 
-				class="w-100" 
+				class="w-100"
+				type="text"
 				placeholder="¿Quieres agregar una tarea?"
+				v-model="item"
+				autocomplete="off"
 				></b-form-input>
 			</b-col>
 			<b-col cols="2">
@@ -31,19 +35,33 @@
 </template>
 
 <script>
-	import { mapState } from 'vuex';
+	import { mapState, mapActions } from 'vuex';
 
 	export default {
 
 		name: 'TodoList',
 
+		data() {
+			return {
+				item:''
+			}
+		},
 		computed: {
 			...mapState([
 				'items'
 				])
 		},
-	};
-</script>
+		methods: {
+			...mapActions([
+				'addItem',
+				]),
+			async onSubmit() {
+				await this.addItem(this.item);
+				this.item=''; // Clear form after successfull save
+				}
+			}
+		};
+	</script>
 
 <style lang="css" scoped>
 form {
