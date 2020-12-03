@@ -24,9 +24,7 @@
 		<b-row>
 			<b-col md="10">
 				<b-list-group>
-					<b-list-group-item v-for="(item, index) in items" :key="index" :item="item">
-						{{ item.name }}
-					</b-list-group-item>
+					<TodoItem v-for="(item, index) in items" :key="index" :item="item" />
 				</b-list-group>
 			</b-col>
 		</b-row>
@@ -36,11 +34,15 @@
 
 <script>
 	import { mapState, mapActions } from 'vuex';
+	import TodoItem from './TodoItem.vue';
 
 	export default {
 
 		name: 'TodoList',
 
+		components: {
+			TodoItem
+		},
 		data() {
 			return {
 				item:''
