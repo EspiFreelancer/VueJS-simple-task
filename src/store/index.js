@@ -26,7 +26,7 @@ export default new Vuex.Store({
 		},
 		editItem(state, { item, name = item.name, done = item.done }) {
 			item.name = name;
-			item.name = done;
+			item.done = done;
 		},
 		removeItem(state, item) {
 			state.items.splice(state.items.indexOf(item), 1);

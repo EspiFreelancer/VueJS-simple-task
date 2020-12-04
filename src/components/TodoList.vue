@@ -3,7 +3,6 @@
 		<!-- start of to-do form -->
 		<b-form class="row" @submit.prevent="onSubmit">
 			<b-col cols="10">
-				<!-- Quite v-validate="'required'" -->
 				<b-form-input 
 				id="item"
 				name="item" 
@@ -65,15 +64,12 @@
 		};
 	</script>
 
-<style lang="css" scoped>
+<style lang="css">
 form {
 	margin-bottom: 25px;
 }
-.list-group-item {
-	display: flex;
-}
 .list-group-item:hover {
-	background-color: aliceblue;
+	background-color: lightblue;
 }
 .checked {
 	font-style: italic;
