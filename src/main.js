@@ -6,15 +6,23 @@ import '@babel/polyfill'
 
 import 'mutationobserver-shim';
 
-import * as VeeValidate from 'vee-validate';
+import { ValidationObserver, ValidationProvider, extend } from 'vee-validate';
+import * as rules from 'vee-validate/dist/rules';
 
 import BootstrapVue from 'bootstrap-vue';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 
+
+// Install rules
+Object.keys(rules).forEach(rule => {
+	extend(rule, rules[rule]);
+});
+
 // Install components globally
 Vue.use(BootstrapVue);
-Vue.use(VeeValidate);
+Vue.component('ValidationObserver', ValidationObserver);
+Vue.component('ValidationProvider', ValidationProvider);
 
 Vue.config.productionTip = false;
 
